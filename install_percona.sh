@@ -11,7 +11,7 @@ wget $PERCONA_ADDRESS
 tar zxvf $PERCONA_FILE
 
 echo "INSTALLING PACKAGES: libncurses5-dev libaio-dev libbison-dev"
-apt-get install libncurses5-dev libaio-dev libbison-dev
+apt-get -y install libncurses5-dev libaio-dev libbison-dev
 
 groupadd mysql
 useradd -r -g mysql mysql
@@ -27,6 +27,7 @@ make install
 cd /usr/local/mysql
 chown -R mysql .
 chgrp -R mysql .
+
 scripts/mysql_install_db --user=mysql
 chown -R root .
 chown -R mysql data
