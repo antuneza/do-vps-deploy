@@ -20,5 +20,6 @@ echo "vm.vfs_cache_pressure=50" >> /etc/sysctl.conf
 adduser $1
 echo "$1    ALL=(ALL:ALL) ALL" > /etc/sudoers.d/$1.perm
 chmod 440 $1.perm
+sed -i 's/PermitRootLogin yes/PermitRootLogin no/' /etc/ssh/sshd_config
 
 mkdir /var/www
