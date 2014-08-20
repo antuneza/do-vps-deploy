@@ -42,7 +42,7 @@ apt-get -y install libssl-dev
 
 echo "BUILDING NGINX"
 cd $NGINX_FOLDER
-./configure --user=www-data --group=www-data --with-http_ssl_module --with-pcre=../$PCRE_FOLDER --with-zlib=../$ZLIB_FOLDER --add-module="$HOME/ngx_pagespeed-release-$4-beta" --with-http_spdy_module --with-file-aio --with-http_gzip_static_module 
+./configure --user=www-data --group=www-data --with-http_ssl_module --with-pcre=../$PCRE_FOLDER --with-zlib=../$ZLIB_FOLDER --add-module="$HOME/ngx_pagespeed-release-$4-beta" --with-http_spdy_module --with-file-aio --with-http_gzip_static_module --with-ipv6 --with-cc-opt='-O2 -g -pipe -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic'
 make
 
 echo "INSTALLING NGINX"
@@ -51,5 +51,5 @@ make clean
 cd ..
 wget https://raw.github.com/JasonGiedymin/nginx-init-ubuntu/master/nginx -O /etc/init.d/nginx
 chmod +x /etc/init.d/nginx
-sudo update-rc.d -f nginx defaults
+update-rc.d -f nginx defaults
 
