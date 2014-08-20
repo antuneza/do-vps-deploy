@@ -28,7 +28,7 @@ cd /usr/local/mysql
 chown -R mysql .
 chgrp -R mysql .
 
-scripts/mysql_install_db --user=mysql
+scripts/mysql_install_db --user=mysql --basedir=/usr/local/mysql --skip-name-resolve
 chown -R root .
 chown -R mysql data
 
