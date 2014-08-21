@@ -44,7 +44,7 @@ ldconfig
 cd $PHP_FOLDER
 ./configure --enable-fpm --with-fpm-user=www-data --with-fpm-group=www-data --with-gd --with-mysqli --with-mysql --with-zlib \
  --without-sqlite3 --enable-gd-native-ttf --enable-mbstring --with-curl --with-mcrypt --with-openssl \
- --without-pdo-sqlite --with-pdo-mysql=mysqlnd --with-mysql-sock --with-bz2 --with-jpeg-dir
+ --without-pdo-sqlite --with-pdo-mysql=mysqlnd --with-mysql-sock --with-bz2 --with-jpeg-dir --enable-soap
 
 make
 make test
